@@ -1,0 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    margin-bottom: 60px; /* To prevent content from being hidden by the nav */
+}
+
+input, button {
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+}
+
+button {
+    cursor: pointer;
+    border: none;
+    background-color: #007BFF;
+    color: white;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: #222;
+    padding: 10px 0;
+}
+
+.bottom-nav button {
+    flex: 1;
+    padding: 15px;
+    color: white;
+    background: none;
+    border: none;
+    font-size: 18px;
+}
+
+.bottom-nav button:hover {
+    background-color: #444;
+}
