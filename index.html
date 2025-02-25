@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabbed Single Page</title>
+    <title>Ασφάλεια στους Χώρους Εργασίας</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -12,23 +12,27 @@
     <div class="container">
         <!-- Home Page -->
         <div class="tab-content" id="home">
-            <h2>Upload PDF & Search Text</h2>
+            <h2>Ασφάλεια στους Χώρους Εργασίας</h2>
             <input type="file" id="pdfUpload" accept="application/pdf">
-            <input type="text" id="searchText" placeholder="Search for a word...">
-            <button onclick="searchInPDF()">Search</button>
+            <input type="text" id="searchText" placeholder="Αναζητήστε λέξη στο PDF...">
+            <button onclick="searchInPDF()">Αναζήτηση</button>
             <p id="searchResult"></p>
         </div>
 
         <!-- About Page -->
         <div class="tab-content" id="about" style="display: none;">
-            <h2>About</h2>
-            <p>This is a simple tabbed page with PDF search functionality.</p>
+            <h2>Χρήσιμοι Σύνδεσμοι</h2>
+            <ul>
+                <li><a href="https://www.elinyae.gr/" target="_blank">Ελληνικό Ινστιτούτο Υγιεινής και Ασφάλειας της Εργασίας</a></li>
+                <li><a href="https://osha.europa.eu/en" target="_blank">Ευρωπαϊκός Οργανισμός για την Ασφάλεια και την Υγεία στην Εργασία</a></li>
+                <li><a href="https://ypergasias.gov.gr/" target="_blank">Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></li>
+            </ul>
         </div>
 
         <!-- Contact Page -->
         <div class="tab-content" id="contact" style="display: none;">
-            <h2>Contact Us</h2>
-            <p>Email: contact@example.com</p>
+            <h2>Επικοινωνία</h2>
+            <p>Email: <a href="mailto:contact@example.com">contact@example.com</a></p>
         </div>
     </div>
 
