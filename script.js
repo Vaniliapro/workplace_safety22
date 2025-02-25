@@ -12,7 +12,7 @@ function searchInPDF() {
     const searchText = document.getElementById('searchText').value;
     
     if (!file || !searchText) {
-        document.getElementById('searchResult').textContent = "Please upload a PDF and enter a search term.";
+        document.getElementById('searchResult').textContent = "Παρακαλώ ανεβάστε ένα PDF και εισάγετε μια λέξη για αναζήτηση.";
         return;
     }
 
@@ -36,8 +36,8 @@ function searchInPDF() {
             Promise.all(pagePromises).then(() => {
                 const found = totalText.toLowerCase().includes(searchText.toLowerCase());
                 document.getElementById('searchResult').textContent = found 
-                    ? `The word "${searchText}" was found in the document.` 
-                    : `The word "${searchText}" was NOT found in the document.`;
+                    ? `Η λέξη "${searchText}" βρέθηκε στο έγγραφο.` 
+                    : `Η λέξη "${searchText}" ΔΕΝ βρέθηκε στο έγγραφο.`;
             });
         });
     };
