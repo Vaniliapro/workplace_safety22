@@ -7,29 +7,38 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
+    <!-- Navigation Menu -->
+    <nav class="top-nav">
+        <ul>
+            <li><a href="#" onclick="showTab('home')">🏠 Home</a></li>
+            <li><a href="#" onclick="showTab('about')">📚 About</a></li>
+            <li><a href="#" onclick="showTab('contact')">📩 Contact</a></li>
+        </ul>
+    </nav>
+
     <div class="container">
-        <h2>🦺 Ασφάλεια στους Χώρους Εργασίας</h2>
         <div class="pdf-section">
-            <img id="pdfIcon" src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
             <p>📂 Επιλέξτε ένα PDF και αναζητήστε πληροφορίες σχετικά με την ασφάλεια.</p>
-            
             <input type="file" id="pdfUpload" accept="application/pdf">
             <input type="text" id="searchText" placeholder="🔎 Αναζητήστε λέξη στο PDF...">
             <button onclick="searchInPDF()">🔍 Αναζήτηση</button>
             <p id="searchResult"></p>
+
+            <!-- Περιοχή εμφάνισης του PDF -->
+            <div class="pdf-preview">
+                <canvas id="pdfCanvas"></canvas>
+            </div>
         </div>
 
-        <!-- Περιοχή εμφάνισης του PDF ως ξεφύλλισμα -->
-        <div class="pdf-viewer">
-            <canvas id="pdfCanvas"></canvas>
-        </div>
-        <div class="pagination">
-            <button onclick="prevPage()">⬅️ Προηγούμενη</button>
-            <span id="pageNum">📖 Σελίδα 1</span>
-            <button onclick="nextPage()">➡️ Επόμενη</button>
+        <!-- Carousel με εικόνες -->
+        <div class="carousel">
+            <img src="https://source.unsplash.com/600x300/?construction,safety" alt="Safety Image">
+            <img src="https://source.unsplash.com/600x300/?workers,helmet" alt="Workplace Safety">
+            <img src="https://source.unsplash.com/600x300/?office,safety" alt="Office Safety">
         </div>
     </div>
 
