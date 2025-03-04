@@ -1,85 +1,45 @@
-let pdfDoc = null;
-let pageNum = 1;
-const scale = 1.5;
-const canvas = document.getElementById('pdfCanvas');
-const ctx = canvas.getContext('2d');
-
-document.getElementById('pdfUpload').addEventListener('change', function(event) {
-    const file = event.target.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = function() {
-            const typedarray = new Uint8Array(this.result);
-            pdfjsLib.getDocument(typedarray).promise.then(pdf => {
-                pdfDoc = pdf;
-                pageNum = 1;
-                renderPage(pageNum);
-            });
-        };
-        reader.readAsArrayBuffer(file);
-    }
-});
-
-function renderPage(num) {
-    pdfDoc.getPage(num).then(page => {
-        const viewport = page.getViewport({ scale: scale });
-        canvas.height = viewport.height;
-        canvas.width = viewport.width;
-
-        const renderContext = {
-            canvasContext: ctx,
-            viewport: viewport
-        };
-        page.render(renderContext);
+// Function to switch tabs
+function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.style.display = 'none';
     });
+    document.getElementById(tabId).style.display = 'block';
 }
 
+// PDF Upload and Search Function
 function searchInPDF() {
-    const searchText = document.getElementById('searchText').value.trim().toLowerCase();
-    if (!pdfDoc || !searchText) {
-        document.getElementById('searchResult').textContent = "⚠️ Ανεβάστε ένα PDF και εισάγετε μια λέξη!";
+    const file = document.getElementById('pdfUpload').files[0];
+    const searchText = document.getElementById('searchText').value;
+    
+    if (!file || !searchText) {
+        document.getElementById('searchResult').textContent = "Παρακαλώ ανεβάστε ένα PDF και εισάγετε μια λέξη για αναζήτηση.";
         return;
     }
 
-    let found = false;
-    let foundPage = -1;
-    let promises = [];
+    const reader = new FileReader();
+    reader.onload = function () {
+        const typedarray = new Uint8Array(this.result);
+        pdfjsLib.getDocument(typedarray).promise.then(pdf => {
+            let totalText = "";
+            let pagePromises = [];
 
-    for (let i = 1; i <= pdfDoc.numPages; i++) {
-        promises.push(pdfDoc.getPage(i).then(page => {
-            return page.getTextContent().then(textContent => {
-                const text = textContent.items.map(item => item.str).join(" ").toLowerCase();
-                if (text.includes(searchText)) {
-                    found = true;
-                    foundPage = i;
-                }
+            for (let i = 1; i <= pdf.numPages; i++) {
+                pagePromises.push(
+                    pdf.getPage(i).then(page => {
+                        return page.getTextContent().then(textContent => {
+                            totalText += textContent.items.map(item => item.str).join(" ") + " ";
+                        });
+                    })
+                );
+            }
+
+            Promise.all(pagePromises).then(() => {
+                const found = totalText.toLowerCase().includes(searchText.toLowerCase());
+                document.getElementById('searchResult').textContent = found 
+                    ? `Η λέξη "${searchText}" βρέθηκε στο έγγραφο.` 
+                    : `Η λέξη "${searchText}" ΔΕΝ βρέθηκε στο έγγραφο.`;
             });
-        }));
-    }
-
-    Promise.all(promises).then(() => {
-        if (found) {
-            document.getElementById('searchResult').textContent = `✅ Βρέθηκε στη σελίδα ${foundPage}! Μεταβαίνουμε...`;
-            pageNum = foundPage;
-            renderPage(pageNum);
-        } else {
-            document.getElementById('searchResult').textContent = `❌ Δεν βρέθηκε η λέξη "${searchText}"`;
-        }
-    });
-}
-
-function prevPage() {
-    if (pageNum <= 1) return;
-    pageNum--;
-    renderPage(pageNum);
-}
-
-function nextPage() {
-    if (pageNum >= pdfDoc.numPages) return;
-    pageNum++;
-    renderPage(pageNum);
-}
-
-function showTab(tabId) {
-    alert(`Επιλέξατε: ${tabId}`);
+        });
+    };
+    reader.readAsArrayBuffer(file);
 }

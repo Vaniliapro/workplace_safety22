@@ -1,57 +1,19 @@
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: Arial, sans-serif;
     text-align: center;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-/* 🔝 Μενού Πλοήγησης */
-.top-nav {
-    background-color: #333;
-    padding: 10px;
-}
-
-.top-nav ul {
-    list-style-type: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.top-nav ul li {
-    display: inline;
-}
-
-.top-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-}
-
-.top-nav ul li a:hover {
-    background-color: #555;
-}
-
-/* 📝 Στήλη PDF */
-.pdf-section {
-    background: white;
+.container {
     padding: 20px;
-    margin-top: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 50%;
-    margin: auto;
+    margin-bottom: 60px; /* To prevent content from being hidden by the nav */
 }
 
 input, button {
     padding: 10px;
     margin: 10px;
     font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
 }
 
 button {
@@ -60,33 +22,50 @@ button {
     background-color: #007BFF;
     color: white;
     border-radius: 5px;
-    padding: 10px 15px;
 }
 
 button:hover {
     background-color: #0056b3;
 }
 
-/* 📖 Προβολή PDF */
-.pdf-preview {
-    margin-top: 20px;
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    background-color: #222;
+    padding: 10px 0;
 }
 
-canvas {
-    border: 2px solid black;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* 📄 Κουμπιά Πλοήγησης */
-.pagination {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.pagination button {
+.bottom-nav button {
+    flex: 1;
+    padding: 15px;
+    color: white;
+    background: none;
+    border: none;
     font-size: 18px;
+}
+
+.bottom-nav button:hover {
+    background-color: #444;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 10px 0;
+}
+
+ul li a {
+    text-decoration: none;
+    color: #007BFF;
+    font-size: 18px;
+}
+
+ul li a:hover {
+    text-decoration: underline;
 }

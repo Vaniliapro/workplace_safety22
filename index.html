@@ -1,48 +1,63 @@
 <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<!DOCTYPE html>
 <html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🦺 Ασφάλεια στους Χώρους Εργασίας</title>
+    <title>Ασφάλεια στους Χώρους Εργασίας</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <!-- 🔝 Πλοήγηση -->
-    <nav class="top-nav">
-        <ul>
-            <li><a href="#" onclick="showTab('home')">🏠 Home</a></li>
-            <li><a href="#" onclick="showTab('about')">📚 About</a></li>
-            <li><a href="#" onclick="showTab('contact')">📩 Contact</a></li>
-        </ul>
-    </nav>
-
     <div class="container">
-        <h1>🦺 Ασφάλεια στους Χώρους Εργασίας</h1>
-
-        <!-- 📂 Εισαγωγή PDF -->
-        <div class="pdf-section">
-            <p>📂 Επιλέξτε ένα PDF και αναζητήστε πληροφορίες σχετικά με την ασφάλεια.</p>
+        <!-- Home Page -->
+        <div class="tab-content" id="home">
+            <h2>Ασφάλεια στους Χώρους Εργασίας</h2>
             <input type="file" id="pdfUpload" accept="application/pdf">
-            <input type="text" id="searchText" placeholder="🔎 Αναζητήστε λέξη στο PDF...">
-            <button onclick="searchInPDF()">🔍 Αναζήτηση</button>
+            <input type="text" id="searchText" placeholder="Αναζητήστε λέξη στο PDF...">
+            <button onclick="searchInPDF()">Αναζήτηση</button>
             <p id="searchResult"></p>
         </div>
 
-        <!-- 📖 Εμφάνιση του PDF -->
-        <div class="pdf-preview">
-            <canvas id="pdfCanvas"></canvas>
+        <!-- About Page -->
+        <div class="tab-content" id="about" style="display: none;">
+            <h2>Χρήσιμοι Σύνδεσμοι</h2>
+            <ul>
+                <li><a href="https://www.elinyae.gr/" target="_blank">Ελληνικό Ινστιτούτο Υγιεινής και Ασφάλειας της Εργασίας</a></li>
+                <li><a href="https://osha.europa.eu/en" target="_blank">Ευρωπαϊκός Οργανισμός για την Ασφάλεια και την Υγεία στην Εργασία</a></li>
+                <li><a href="https://ypergasias.gov.gr/" target="_blank">Υπουργείο Εργασίας και Κοινωνικών Υποθέσεων</a></li>
+            </ul>
         </div>
 
-        <div class="pagination">
-            <button onclick="prevPage()">⬅️ Προηγούμενη</button>
-            <span id="pageNum">📖 Σελίδα 1</span>
-            <button onclick="nextPage()">➡️ Επόμενη</button>
+        <!-- Contact Page -->
+        <div class="tab-content" id="contact" style="display: none;">
+            <h2>Επικοινωνία</h2>
+            <p>Email: <a href="mailto:contact@example.com">contact@example.com</a></p>
         </div>
     </div>
 
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <button onclick="showTab('home')">Home</button>
+        <button onclick="showTab('about')">About</button>
+        <button onclick="showTab('contact')">Contact Us</button>
+    </div>
+
     <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
 </body>
 </html>
