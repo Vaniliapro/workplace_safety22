@@ -3,15 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🔍 Ασφάλεια στους Χώρους Εργασίας</title>
+    <title>🦺 Ασφάλεια στους Χώρους Εργασίας</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 
-    <!-- Navigation Menu -->
+    <!-- 🔝 Πλοήγηση -->
     <nav class="top-nav">
         <ul>
             <li><a href="#" onclick="showTab('home')">🏠 Home</a></li>
@@ -21,24 +20,26 @@
     </nav>
 
     <div class="container">
+        <h1>🦺 Ασφάλεια στους Χώρους Εργασίας</h1>
+
+        <!-- 📂 Εισαγωγή PDF -->
         <div class="pdf-section">
             <p>📂 Επιλέξτε ένα PDF και αναζητήστε πληροφορίες σχετικά με την ασφάλεια.</p>
             <input type="file" id="pdfUpload" accept="application/pdf">
             <input type="text" id="searchText" placeholder="🔎 Αναζητήστε λέξη στο PDF...">
             <button onclick="searchInPDF()">🔍 Αναζήτηση</button>
             <p id="searchResult"></p>
-
-            <!-- Περιοχή εμφάνισης του PDF -->
-            <div class="pdf-preview">
-                <canvas id="pdfCanvas"></canvas>
-            </div>
         </div>
 
-        <!-- Carousel με εικόνες -->
-        <div class="carousel">
-            <img src="https://source.unsplash.com/600x300/?construction,safety" alt="Safety Image">
-            <img src="https://source.unsplash.com/600x300/?workers,helmet" alt="Workplace Safety">
-            <img src="https://source.unsplash.com/600x300/?office,safety" alt="Office Safety">
+        <!-- 📖 Εμφάνιση του PDF -->
+        <div class="pdf-preview">
+            <canvas id="pdfCanvas"></canvas>
+        </div>
+
+        <div class="pagination">
+            <button onclick="prevPage()">⬅️ Προηγούμενη</button>
+            <span id="pageNum">📖 Σελίδα 1</span>
+            <button onclick="nextPage()">➡️ Επόμενη</button>
         </div>
     </div>
 
