@@ -9,10 +9,10 @@ function showTab(tabId) {
 // PDF Upload and Search Function
 function searchInPDF() {
     const file = document.getElementById('pdfUpload').files[0];
-    const searchText = document.getElementById('searchText').value;
+    const searchText = document.getElementById('searchText').value.trim();
     
     if (!file || !searchText) {
-        document.getElementById('searchResult').textContent = "Παρακαλώ ανεβάστε ένα PDF και εισάγετε μια λέξη για αναζήτηση.";
+        document.getElementById('searchResult').textContent = "⚠️ Παρακαλώ ανεβάστε ένα PDF και εισάγετε μια λέξη για αναζήτηση.";
         return;
     }
 
@@ -36,8 +36,8 @@ function searchInPDF() {
             Promise.all(pagePromises).then(() => {
                 const found = totalText.toLowerCase().includes(searchText.toLowerCase());
                 document.getElementById('searchResult').textContent = found 
-                    ? `Η λέξη "${searchText}" βρέθηκε στο έγγραφο.` 
-                    : `Η λέξη "${searchText}" ΔΕΝ βρέθηκε στο έγγραφο.`;
+                    ? `✅ Η λέξη "${searchText}" βρέθηκε στο έγγραφο!` 
+                    : `❌ Η λέξη "${searchText}" ΔΕΝ βρέθηκε στο έγγραφο.`;
             });
         });
     };
