@@ -19,6 +19,13 @@ p {
     font-size: 18px;
 }
 
+.center-img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 10px;
+    max-width: 400px;
+}
+
 input, button {
     padding: 10px;
     margin: 10px;
@@ -45,13 +52,12 @@ button:hover {
     bottom: 0;
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     background-color: #222;
     padding: 10px 0;
 }
 
 .bottom-nav button {
-    flex: 1;
     padding: 15px;
     color: white;
     background: none;
@@ -63,28 +69,8 @@ button:hover {
     background-color: #444;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-ul li {
-    margin: 10px 0;
-}
-
-ul li a {
-    text-decoration: none;
-    color: #007BFF;
-    font-size: 18px;
-}
-
-ul li a:hover {
-    text-decoration: underline;
-}
-
-img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 10px;
-    margin: 20px 0;
+canvas {
+    display: block;
+    margin: 10px auto;
+    border: 1px solid black;
 }
