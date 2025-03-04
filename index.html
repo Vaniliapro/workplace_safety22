@@ -19,7 +19,8 @@
         </ul>
     </nav>
 
-    <div class="container">
+    <!-- 🏠 Home Page -->
+    <div class="tab-content" id="home">
         <h1>🦺 Ασφάλεια στους Χώρους Εργασίας</h1>
 
         <!-- 📂 Εισαγωγή PDF -->
@@ -41,6 +42,18 @@
             <span id="pageNum">📖 Σελίδα 1</span>
             <button onclick="nextPage()">➡️ Επόμενη</button>
         </div>
+    </div>
+
+    <!-- 📚 About Page -->
+    <div class="tab-content" id="about" style="display: none;">
+        <h1>📚 Σχετικά με την Ασφάλεια</h1>
+        <p>Η ασφάλεια στους χώρους εργασίας είναι πολύ σημαντική για την προστασία των εργαζομένων...</p>
+    </div>
+
+    <!-- 📩 Contact Page -->
+    <div class="tab-content" id="contact" style="display: none;">
+        <h1>📩 Επικοινωνία</h1>
+        <p>📧 Email: <a href="mailto:contact@example.com">contact@example.com</a></p>
     </div>
 
     <script src="script.js"></script>
