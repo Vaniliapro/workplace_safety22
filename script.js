@@ -68,18 +68,9 @@ function searchInPDF() {
     });
 }
 
-function prevPage() {
-    if (pageNum <= 1) return;
-    pageNum--;
-    renderPage(pageNum);
-}
-
-function nextPage() {
-    if (pageNum >= pdfDoc.numPages) return;
-    pageNum++;
-    renderPage(pageNum);
-}
-
 function showTab(tabId) {
-    alert(`Επιλέξατε: ${tabId}`);
+    document.querySelectorAll('.tab-content').forEach(tab => {
+        tab.style.display = 'none';
+    });
+    document.getElementById(tabId).style.display = 'block';
 }
