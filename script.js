@@ -3,7 +3,7 @@ let pageNum = 1;
 let pageRendering = false;
 let pageNumPending = null;
 const scale = 1.5;
-const canvas = document.getElementById('pdfViewer');
+const canvas = document.getElementById('pdfCanvas');
 const ctx = canvas.getContext('2d');
 
 document.getElementById('pdfUpload').addEventListener('change', function(event) {
@@ -38,6 +38,7 @@ function renderPage(num) {
         renderTask.promise.then(() => {
             pageRendering = false;
             document.getElementById('pageNum').textContent = `📖 Σελίδα ${num} από ${pdfDoc.numPages}`;
+            canvas.style.transform = "rotateY(0deg)";
             if (pageNumPending !== null) {
                 renderPage(pageNumPending);
                 pageNumPending = null;
@@ -49,13 +50,15 @@ function renderPage(num) {
 function prevPage() {
     if (pageNum <= 1) return;
     pageNum--;
-    renderPage(pageNum);
+    canvas.style.transform = "rotateY(180deg)";
+    setTimeout(() => renderPage(pageNum), 300);
 }
 
 function nextPage() {
     if (pageNum >= pdfDoc.numPages) return;
     pageNum++;
-    renderPage(pageNum);
+    canvas.style.transform = "rotateY(-180deg)";
+    setTimeout(() => renderPage(pageNum), 300);
 }
 
 function searchInPDF() {
@@ -90,11 +93,4 @@ function searchInPDF() {
             document.getElementById('searchResult').textContent = `❌ Δεν βρέθηκε η λέξη "${searchText}"`;
         }
     });
-}
-
-function showTab(tabId) {
-    document.querySelectorAll('.tab-content').forEach(tab => {
-        tab.style.display = 'none';
-    });
-    document.getElementById(tabId).style.display = 'block';
 }
