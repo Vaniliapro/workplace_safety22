@@ -11,27 +11,26 @@
 <body>
 
     <div class="container">
-        <!-- Home Page -->
-        <div class="tab-content" id="home">
-            <h2>🦺 Ασφάλεια στους Χώρους Εργασίας</h2>
-            <img src="https://source.unsplash.com/400x200/?safety,work" alt="Safety Image" class="center-img">
+        <h2>🦺 Ασφάλεια στους Χώρους Εργασίας</h2>
+        <div class="pdf-section">
+            <img id="pdfIcon" src="https://cdn-icons-png.flaticon.com/512/337/337946.png" alt="PDF Icon">
             <p>📂 Επιλέξτε ένα PDF και αναζητήστε πληροφορίες σχετικά με την ασφάλεια.</p>
             
             <input type="file" id="pdfUpload" accept="application/pdf">
             <input type="text" id="searchText" placeholder="🔎 Αναζητήστε λέξη στο PDF...">
             <button onclick="searchInPDF()">🔍 Αναζήτηση</button>
             <p id="searchResult"></p>
-            
-            <!-- Περιοχή εμφάνισης του PDF -->
-            <canvas id="pdfViewer"></canvas>
+        </div>
+
+        <!-- Περιοχή εμφάνισης του PDF ως ξεφύλλισμα -->
+        <div class="pdf-viewer">
+            <canvas id="pdfCanvas"></canvas>
+        </div>
+        <div class="pagination">
             <button onclick="prevPage()">⬅️ Προηγούμενη</button>
-            <span id="pageNum"></span>
+            <span id="pageNum">📖 Σελίδα 1</span>
             <button onclick="nextPage()">➡️ Επόμενη</button>
         </div>
-    </div>
-
-    <div class="bottom-nav">
-        <button onclick="showTab('home')">🏠 Home</button>
     </div>
 
     <script src="script.js"></script>
