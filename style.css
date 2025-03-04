@@ -79,14 +79,11 @@ canvas {
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-/* 📄 Κουμπιά Πλοήγησης */
-.pagination {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+/* 📄 Tabs */
+.tab-content {
+    display: none;
 }
 
-.pagination button {
-    font-size: 18px;
+.tab-content:first-child {
+    display: block;
 }
