@@ -68,6 +68,18 @@ function searchInPDF() {
     });
 }
 
+function prevPage() {
+    if (pageNum <= 1) return;
+    pageNum--;
+    renderPage(pageNum);
+}
+
+function nextPage() {
+    if (pageNum >= pdfDoc.numPages) return;
+    pageNum++;
+    renderPage(pageNum);
+}
+
 function showTab(tabId) {
     alert(`Επιλέξατε: ${tabId}`);
 }
