@@ -1,7 +1,5 @@
 let pdfDoc = null;
 let pageNum = 1;
-let pageRendering = false;
-let pageNumPending = null;
 const scale = 1.5;
 const canvas = document.getElementById('pdfCanvas');
 const ctx = canvas.getContext('2d');
@@ -23,7 +21,6 @@ document.getElementById('pdfUpload').addEventListener('change', function(event) 
 });
 
 function renderPage(num) {
-    pageRendering = true;
     pdfDoc.getPage(num).then(page => {
         const viewport = page.getViewport({ scale: scale });
         canvas.height = viewport.height;
@@ -33,32 +30,8 @@ function renderPage(num) {
             canvasContext: ctx,
             viewport: viewport
         };
-        const renderTask = page.render(renderContext);
-
-        renderTask.promise.then(() => {
-            pageRendering = false;
-            document.getElementById('pageNum').textContent = `📖 Σελίδα ${num} από ${pdfDoc.numPages}`;
-            canvas.style.transform = "rotateY(0deg)";
-            if (pageNumPending !== null) {
-                renderPage(pageNumPending);
-                pageNumPending = null;
-            }
-        });
+        page.render(renderContext);
     });
-}
-
-function prevPage() {
-    if (pageNum <= 1) return;
-    pageNum--;
-    canvas.style.transform = "rotateY(180deg)";
-    setTimeout(() => renderPage(pageNum), 300);
-}
-
-function nextPage() {
-    if (pageNum >= pdfDoc.numPages) return;
-    pageNum++;
-    canvas.style.transform = "rotateY(-180deg)";
-    setTimeout(() => renderPage(pageNum), 300);
 }
 
 function searchInPDF() {
@@ -70,8 +43,8 @@ function searchInPDF() {
 
     let found = false;
     let foundPage = -1;
-
     let promises = [];
+
     for (let i = 1; i <= pdfDoc.numPages; i++) {
         promises.push(pdfDoc.getPage(i).then(page => {
             return page.getTextContent().then(textContent => {
@@ -93,4 +66,8 @@ function searchInPDF() {
             document.getElementById('searchResult').textContent = `❌ Δεν βρέθηκε η λέξη "${searchText}"`;
         }
     });
+}
+
+function showTab(tabId) {
+    alert(`Επιλέξατε: ${tabId}`);
 }
