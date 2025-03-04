@@ -8,22 +8,27 @@ body {
 
 .container {
     padding: 20px;
-    margin-bottom: 60px;
+    margin: auto;
+    max-width: 800px;
 }
 
 h2 {
     color: #333;
 }
 
-p {
-    font-size: 18px;
+.pdf-section {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.center-img {
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-    max-width: 400px;
+.pdf-section img {
+    width: 80px;
+    margin-bottom: 10px;
 }
 
 input, button {
@@ -47,30 +52,25 @@ button:hover {
     background-color: #0056b3;
 }
 
-.bottom-nav {
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+.pdf-viewer {
     display: flex;
     justify-content: center;
-    background-color: #222;
-    padding: 10px 0;
-}
-
-.bottom-nav button {
-    padding: 15px;
-    color: white;
-    background: none;
-    border: none;
-    font-size: 18px;
-}
-
-.bottom-nav button:hover {
-    background-color: #444;
+    margin-top: 20px;
 }
 
 canvas {
-    display: block;
-    margin: 10px auto;
-    border: 1px solid black;
+    border: 2px solid black;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease-in-out;
+}
+
+.pagination {
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.pagination button {
+    font-size: 18px;
 }
