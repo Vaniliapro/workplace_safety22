@@ -1,92 +1,145 @@
 body {
-    font-family: 'Arial', sans-serif;
-    text-align: center;
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    text-align: center;
     background-color: #f4f4f4;
 }
 
-/* 🔝 Μενού Πλοήγησης */
-.top-nav {
-    background-color: #222;
-    padding: 10px;
+header {
+    background-color: #ff9800;
+    color: white;
+    padding: 20px;
 }
 
-.top-nav ul {
-    list-style-type: none;
+.hero {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.hero video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.content {
+    padding: 20px;
+}
+
+.content img {
+    width: 80%;
+    border-radius: 10px;
+}
+
+.links ul {
+    list-style: none;
     padding: 0;
+}
+
+.links li {
+    margin: 10px 0;
+}
+
+.links a {
+    text-decoration: none;
+    color: #ff9800;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
+    margin-top: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    background-color: #eef2f3;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px;
+}
+
+.articles {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-}
-
-.top-nav ul li {
-    display: inline;
-}
-
-.top-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    padding: 10px 15px;
-}
-
-.top-nav ul li a:hover {
-    background-color: #555;
-}
-
-/* 📝 Στήλη PDF */
-.pdf-section {
-    background: white;
     padding: 20px;
-    margin-top: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 50%;
-    margin: auto;
 }
 
-input, button {
-    padding: 10px;
-    margin: 10px;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+.post {
+    background: white;
+    padding: 15px;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.post:hover {
+    transform: scale(1.05);
+}
+
+.post img {
+    width: 100%;
+    border-radius: 10px;
 }
 
 button {
-    cursor: pointer;
-    border: none;
-    background-color: #007BFF;
+    background-color: #ff9800;
     color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
     border-radius: 5px;
-    padding: 10px 15px;
+    cursor: pointer;
+    transition: background 0.3s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e68900;
 }
 
-/* 📖 Προβολή PDF */
-.pdf-preview {
+footer {
+    background-color: #333;
+    color: white;
+    padding: 10px;
     margin-top: 20px;
-    display: flex;
-    justify-content: center;
+}
+.pdf-reader {
+    text-align: center;
+    margin-top: 30px;
 }
 
-canvas {
-    border: 2px solid black;
-    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+#pdfCanvas {
+    border: 1px solid black;
+    width: 80%;
+    max-width: 600px;
+    display: block;
+    margin: 20px auto;
 }
 
-/* 📄 Κουμπιά Πλοήγησης */
-.pagination {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-}
-
-.pagination button {
-    font-size: 18px;
+button {
+    margin: 5px;
 }
