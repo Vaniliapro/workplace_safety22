@@ -1,17 +1,20 @@
+/* Γενικές Ρυθμίσεις */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     text-align: center;
-    background-color: #f4f4f4;
+    background-color: #eef2f3;
 }
 
+/* 🔝 Header */
 header {
     background-color: #ff9800;
     color: white;
     padding: 20px;
 }
 
+/* 🏗️ Hero Section (Βίντεο) */
 .hero {
     position: relative;
     width: 100%;
@@ -36,15 +39,18 @@ header {
     border-radius: 10px;
 }
 
+/* 📋 Βασικοί Κανόνες Ασφαλείας */
 .content {
     padding: 20px;
 }
 
 .content img {
     width: 80%;
+    max-width: 600px;
     border-radius: 10px;
 }
 
+/* 🔗 Χρήσιμα Links */
 .links ul {
     list-style: none;
     padding: 0;
@@ -58,28 +64,14 @@ header {
     text-decoration: none;
     color: #ff9800;
     font-weight: bold;
+    transition: color 0.3s ease;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    margin-top: 20px;
-}
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    background-color: #eef2f3;
+.links a:hover {
+    color: #e68900;
 }
 
-header {
-    background-color: #4CAF50;
-    color: white;
-    padding: 20px;
-}
-
+/* 📝 Blog Σχεδίαση */
 .articles {
     display: flex;
     flex-wrap: wrap;
@@ -94,11 +86,12 @@ header {
     width: 300px;
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .post:hover {
     transform: scale(1.05);
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3);
 }
 
 .post img {
@@ -106,27 +99,28 @@ header {
     border-radius: 10px;
 }
 
+/* 🎨 Buttons */
 button {
     background-color: #ff9800;
     color: white;
     border: none;
     padding: 10px;
-    width: 100%;
+    width: auto;
     border-radius: 5px;
     cursor: pointer;
     transition: background 0.3s ease;
+    font-size: 16px;
 }
 
 button:hover {
     background-color: #e68900;
 }
 
-footer {
-    background-color: #333;
-    color: white;
-    padding: 10px;
-    margin-top: 20px;
+button:active {
+    transform: scale(0.98);
 }
+
+/* 📖 PDF Reader */
 .pdf-reader {
     text-align: center;
     margin-top: 30px;
@@ -140,6 +134,57 @@ footer {
     margin: 20px auto;
 }
 
-button {
-    margin: 5px;
+#pageNumber {
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* 🔼 Scroll-to-Top Button */
+#scrollTop {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#scrollTop:hover {
+    background: #e68900;
+    transform: scale(1.1);
+}
+
+/* ⬅️➡️ Πλοήγηση PDF */
+#prevPage, #nextPage {
+    display: inline-block;
+    margin: 10px;
+}
+
+/* ⚡ Responsive Σχεδίαση */
+@media (max-width: 768px) {
+    .hero {
+        height: 200px;
+    }
+
+    .hero h2 {
+        font-size: 18px;
+        padding: 8px;
+    }
+
+    .articles {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .post {
+        width: 90%;
+    }
 }
