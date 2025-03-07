@@ -3,46 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🦺 Ασφάλεια στους Χώρους Εργασίας</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js"></script>
+    <title>Ασφάλεια στους Χώρους Εργασίας</title>
+    <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>👷‍♂️ Ασφάλεια στους Χώρους Εργασίας 🔧</h1>
+        <p>Μάθετε πώς να διατηρείτε έναν ασφαλή και υγιή χώρο εργασίας!</p>
+    </header>
+
+    <main>
+        <section class="hero">
+            <video autoplay muted loop>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Το βίντεο δεν υποστηρίζεται από τον browser σας.
+            </video>
+            <h2>Η ασφάλεια είναι προτεραιότητα! 🚧</h2>
+        </section>
+
+        <section class="content">
+            <h2>🛠️ Βασικοί Κανόνες Ασφαλείας</h2>
+            <p>Η σωστή εκπαίδευση και ο εξοπλισμός προστασίας μειώνουν τους κινδύνους.</p>
+            <img src="https://source.unsplash.com/800x400/?safety,workplace" alt="Ασφάλεια στην εργασία">
+        </section>
+
+        <section class="links">
+            <h2>🔗 Χρήσιμα Links</h2>
+            <ul>
+                <li><a href="https://osha.europa.eu/el" target="_blank">Ευρωπαϊκός Οργανισμός για την Ασφάλεια</a></li>
+                <li><a href="https://www.who.int/health-topics/occupational-health" target="_blank">Παγκόσμιος Οργανισμός Υγείας</a></li>
+                <li><a href="https://www.safetyandhealthmagazine.com/" target="_blank">Safety & Health Magazine</a></li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Ασφάλεια στην Εργασία | Stay Safe! 🦺</p>
+    </footer>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Ασφάλεια στην Εργασία</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <header>
+        <h1>📝 Blog για την Ασφάλεια στην Εργασία</h1>
+        <p>Συμβουλές, κανόνες & ενημερώσεις για ένα ασφαλές εργασιακό περιβάλλον!</p>
+    </header>
 
-    <!-- 🔝 Μενού Πλοήγησης -->
-    <nav class="top-nav">
-        <ul>
-            <li><a href="#" onclick="showTab('home')">🏠 Home</a></li>
-            <li><a href="#" onclick="showTab('about')">📚 About</a></li>
-            <li><a href="#" onclick="showTab('contact')">📩 Contact Us</a></li>
-        </ul>
-    </nav>
+    <main>
+        <section class="articles">
+            <article class="post">
+                <img src="https://source.unsplash.com/800x400/?safety,helmet" alt="Ασφάλεια με κράνος">
+                <h2>🦺 Η σημασία του εξοπλισμού προστασίας</h2>
+                <p>Ο εξοπλισμός ασφαλείας σώζει ζωές! Δες γιατί το κράνος και τα γάντια είναι απαραίτητα.</p>
+                <button onclick="readMore(1)">Διαβάστε Περισσότερα</button>
+            </article>
 
-    <div class="container">
-        <h1>🦺 Ασφάλεια στους Χώρους Εργασίας</h1>
+            <article class="post">
+                <img src="https://source.unsplash.com/800x400/?workplace,accident" alt="Αποφυγή ατυχημάτων">
+                <h2>⚠️ Πώς να αποφύγετε τα ατυχήματα</h2>
+                <p>Μάθετε 5 πρακτικούς τρόπους για να ελαχιστοποιήσετε τους κινδύνους στο εργασιακό σας περιβάλλον.</p>
+                <button onclick="readMore(2)">Διαβάστε Περισσότερα</button>
+            </article>
 
-        <!-- 📂 Εισαγωγή PDF -->
-        <div class="pdf-section">
-            <p>📂 Επιλέξτε ένα PDF και αναζητήστε πληροφορίες σχετικά με την ασφάλεια.</p>
-            <input type="file" id="pdfUpload" accept="application/pdf">
-            <input type="text" id="searchText" placeholder="🔎 Αναζητήστε λέξη στο PDF...">
-            <button onclick="searchInPDF()">🔍 Αναζήτηση</button>
-            <p id="searchResult"></p>
-        </div>
+            <article class="post">
+                <img src="https://source.unsplash.com/800x400/?firstaid,work" alt="Πρώτες βοήθειες">
+                <h2>🚑 Πρώτες Βοήθειες στον Χώρο Εργασίας</h2>
+                <p>Ξέρετε πώς να αντιδράσετε σε περίπτωση ατυχήματος; Μάθετε τα βασικά βήματα πρώτων βοηθειών.</p>
+                <button onclick="readMore(3)">Διαβάστε Περισσότερα</button>
+            </article>
+        </section>
+    </main>
 
-        <!-- 📖 Εμφάνιση του PDF -->
-        <div class="pdf-preview">
-            <canvas id="pdfCanvas"></canvas>
-        </div>
-
-        <div class="pagination">
-            <button onclick="prevPage()">⬅️ Προηγούμενη</button>
-            <span id="pageNum">📖 Σελίδα 1</span>
-            <button onclick="nextPage()">➡️ Επόμενη</button>
-        </div>
-    </div>
+    <footer>
+        <p>© 2025 Blog Ασφάλειας | Stay Safe! 🦺</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
+<section class="pdf-reader">
+    <h2>📖 Επιλέξτε ένα PDF και Αναζητήστε Πληροφορίες</h2>
+    <input type="file" id="uploadPDF" accept="application/pdf">
+    <br><br>
+    <input type="text" id="searchWord" placeholder="🔎 Αναζητήστε λέξη στο PDF...">
+    <button onclick="searchInPDF()">🔍 Αναζήτηση</button>
+    
+    <canvas id="pdfCanvas"></canvas>
+    <p id="pageNumber"></p>
+    <button id="prevPage">⬅️ Προηγούμενη</button>
+    <button id="nextPage">➡️ Επόμενη</button>
+</section>
